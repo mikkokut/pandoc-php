@@ -213,7 +213,7 @@ class Pandoc
 
         foreach ($options as $key => $value) {
             if ($key == 'to' && in_array($value, $extFilesFormat)) {
-                $commandOptions[] = '-s -S -o '.$this->tmpFile.'.'.$value;
+                $commandOptions[] = '-s -o '.$this->tmpFile.'.'.$value;
                 $format = $value;
                 continue;
             } else if ($key == 'to' && in_array($value, $extFilesHtmlSlide)) {
@@ -221,7 +221,7 @@ class Pandoc
                 $format = 'html';
                 continue;
             } else if ($key == 'to' && $value == 'epub3') {
-                $commandOptions[] = '-S -o '.$this->tmpFile.'.epub';
+                $commandOptions[] = '-o '.$this->tmpFile.'.epub';
                 $format = 'epub';
                 continue;
             } else if ($key == 'to' && $value == 'beamer') {
@@ -241,7 +241,7 @@ class Pandoc
                 $format = $value;
                 continue;
             } else if ($key == 'to' && $value == 'docbook') {
-                $commandOptions[] = '-s -S -t docbook -o '.$this->tmpFile.'.db';
+                $commandOptions[] = '-s -t docbook -o '.$this->tmpFile.'.db';
                 $format = 'db';
                 continue;
             } else if ($key == 'to' && $value == 'context') {
@@ -249,7 +249,7 @@ class Pandoc
                 $format = 'tex';
                 continue;
             } else if ($key == 'to' && $value == 'asciidoc') {
-                $commandOptions[] = '-s -S -t asciidoc -o '.$this->tmpFile.'.txt';
+                $commandOptions[] = '-s -t asciidoc -o '.$this->tmpFile.'.txt';
                 $format = 'txt';
                 continue;
             }
