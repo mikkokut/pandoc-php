@@ -274,7 +274,7 @@ class Pandoc
         );
 
 
-        exec(escapeshellcmd($command), $output, $returnval);
+        exec(escapeshellcmd($command) . ' 2>&1', $output, $returnval);
         if($returnval === 0)
         {
             if (isset($format)) {
@@ -285,7 +285,7 @@ class Pandoc
         }else
         {
             throw new PandocException(
-                sprintf('Pandoc could not convert successfully, error code: %s. Tried to run the following command: %s. Output: %s', $returnval, $command, $output)
+                sprintf('Pandoc could not convert successfully, error code: %s. Tried to run the following command: %s. Output: %s', $returnval, $command, implode("\n", $output))
             );
         }
     }
