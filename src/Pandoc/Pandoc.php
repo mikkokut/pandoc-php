@@ -285,7 +285,7 @@ class Pandoc
         }else
         {
             throw new PandocException(
-                sprintf('Pandoc could not convert successfully, error code: %s. Tried to run the following command: %s', $returnval, $command)
+                sprintf('Pandoc could not convert successfully, error code: %s. Tried to run the following command: %s. Output: %s', $returnval, $command, $output)
             );
         }
     }
